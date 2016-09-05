@@ -15,6 +15,8 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
     <style type="text/css">
       body {
         padding-top: 50px;
@@ -124,6 +126,12 @@
               </div>
             </div>
             <div class="form-group">
+              <label for="birthday" class="col-sm-2 control-label">生日：</label>
+              <div class="col-sm-6">
+                <input type="datetime" class="form-control" name="birthday" id="birthday" placeholder="请选择你的生日">
+              </div>
+            </div>
+            <div class="form-group">
             <div class="col-sm-3"></div>
             <div class="col-sm-9">
               <button type="submit" class="btn btn-success">修改</button>
@@ -143,5 +151,13 @@
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script  src="js/moment.js" ></script>
+    <script  src="js/bootstrap-datetimepicker.js" ></script>
+    <script type="text/javascript">
+      $("input[type=datetime]").datetimepicker({
+                            format:'YYYY-MM-DD'
+                        })
+
+    </script>
   </body>
 </html>
