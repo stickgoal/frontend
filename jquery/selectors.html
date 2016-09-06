@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jquery选择器</title>
+    <script src="scripts/jquery-3.1.0.js"></script>
+    <script>
+        $(function () {
+            //1. 我就是那段把p标签搞成土豪金色的js代码
+            $('p').css('color', 'gold');
+
+            //2.我们来把杀手标成红色
+            $('.killer').css('color', 'red');
+
+            //3.让独一无二的一位成为绿色
+            $("#theone").css("color", "green");
+
+            //4.用户名输入框搞成limegreen
+            $("input[name=username]").css('border-color', 'limegreen')
+
+            //5.根据css组合选择器选择
+            $("#content .part > p.killer ").css("background","darkgrey");
+
+            //6.逗号隔开多选
+            $('div.test,label:eq(1)').click(function(){alert('逗号隔开多选 div.test label:eq(1)')});
+
+        });
+    </script>
+    <style>
+        .part{
+            margin-bottom: 10px;
+            padding: 10px;
+            border-style: dotted;
+        }
+    </style>
+</head>
+<body>
+<h1>让我们来测试下jquery的各种选择器吧</h1>
+<div id="content">
+    <div class="part">
+        根据标签选择：<code>$('p').css('color','gold');</code>
+        <p>我现在在一个p标签里面，head里的一段js代码把我搞成了土豪金色。</p>
+    </div>
+    <div class="part">
+        根据css的class选择：<code>$('.killer').css('color','red');</code>
+        <div class="killer">我是一个div标签，其实我是一个杀手</div>
+        <h5 class="killer">我是一个h5标签，其实我也是一个杀手</h5>
+        <p class="killer" title="根据css组合选择器选择 $('#content .part > p.killer ').css('background','darkgrey');">我是一个p标签，本来我应该是土豪金色的，但谁让我也是个杀手呢，杀手都要被标成红色</p>
+    </div>
+    <div class="part test">
+        根据id选择：<code>$("#theone").css("color","green")</code>
+        <br/>
+        <span id="theone">独一无二的一位</span>
+    </div>
+    <div class="part">
+        根据属性选择：<code>$("input[name=username]").css('border-color','limegreen')</code>
+        <br/>
+        <label>用户名：</label>
+        <input type="text" name="username" placeholder="请输入用户名">
+        <label>密码：</label>
+        <input type="password" name="password" placeholder="请输入密码">
+    </div>
+</div>
+</body>
+</html>
