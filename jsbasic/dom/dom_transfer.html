@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom操作_穿梭框</title>
+	<style>
+		select{
+			width: 100px;
+			height: 200px;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var removeBtn = byId("remove");
+			var removeAllBtn = byId("removeAll");
+			var addBtn = byId("add");
+			var addAllBtn = byId("addAll");
+			var selects = document.getElementsByTagName("select");
+			var srcSelect = selects[0];
+			var destSelect = selects[1];
+			//如果直接从源select移动，源select的options数组其实是在变化的
+			//所以先用数组存储需要移动的对象，再统一移动。
+			// 移动多个
+			addBtn.onclick=function(){
+
+				var tmpArr = new Array();
+				for (var i = 0; i < srcSelect.options.length; i++) {
+					if(srcSelect.options[i].selected){
+						tmpArr.push(srcSelect.options[i]);
+					}
+				}			
+				for (var i = 0; i < tmpArr.length; i++) {
+					destSelect.appendChild(tmpArr[i]);
+				}
+			}
+			
+			//反向移动多个 
+			removeBtn.onclick=function(){
+				var tmpArr = new Array();
+				for (var i = 0; i < destSelect.options.length; i++) {
+					if(destSelect.options[i].selected){
+						tmpArr.push(destSelect.options[i]);
+					}
+				}			
+				for (var i = 0; i < tmpArr.length; i++) {
+					srcSelect.appendChild(tmpArr[i]);
+				}
+			}
+			// 全部移动
+			addAllBtn.onclick=function () {
+				var length = srcSelect.options.length;
+				var tmpArr =copyHTMLOptionCollection(srcSelect.options);
+				for (var i = 0; i < tmpArr.length; i++) {
+				destSelect.appendChild(tmpArr[i]);
+				}
+			}
+			// 全部反向移动
+			removeAllBtn.onclick=function () {
+				console.log(destSelect.options);
+				var length = destSelect.options.length;
+				var tmpArr = copyHTMLOptionCollection(destSelect.options);
+				for (var i = 0; i < tmpArr.length; i++) {
+				srcSelect.appendChild(tmpArr[i]);
+				}
+			}
+		}
+		function copyHTMLOptionCollection(optCollection){
+			var optArray = 	new Array();
+			for (var i = 0; i < optCollection.length; i++) {
+				optArray.push(optCollection[i]);
+			}
+			return optArray;
+		}
+		function byId(id){
+			return document.getElementById(id);
+		}
+	</script>
+</head>
+<body>
+	<div>
+		 <select  size=8 multiple="multiple">
+	        <option>北京</option>
+	        <option>上海</option>
+	        <option>天津</option>
+	        <option>重庆</option>
+	        <option>广州</option>
+	        <option>深圳</option>
+    	</select>
+    	<button id="removeAll">&lt;&lt;</button>
+    	<button id="remove">&lt;=</button>
+    	<button id="add">=&gt;</button>
+    	<button id="addAll">&gt;&gt;</button>
+		<select size=8  multiple="multiple">
+			
+		</select>
+	</div>
+</body>
+</html>

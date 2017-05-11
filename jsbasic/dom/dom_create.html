@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom create</title>
+	<script>
+		window.onload=function(){
+			var btn = document.querySelector("button");
+			var div = document.querySelector("div");
+
+			btn.onclick=function(){
+				//创建p元素
+				var p = document.createElement("p");
+				//创建文本节点
+				var txt = document.createTextNode("Hello Javascript World!");
+				//将文本节点加入到p元素中
+				p.appendChild(txt);
+				// 将p元素放置在div元素中
+					// 先移除所有子元素
+					var childList = div.childNodes;
+					for(var i=0,len=childList.length;i<len;i++){
+					    div.removeChild(childList[i]);
+					}
+				div.appendChild(p);
+			}
+		}
+	</script>
+</head>
+<body>
+	<button>点此创建</button>
+	<div>
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>联动选择</title>
+	<script>
+		// 数组保存城市数据，用下标表示省，0表示北京，1表示重庆
+		var citys = new Array();
+		citys[0]=["昌平","西城"];
+		citys[1]=["渝中","江北","渝北","南岸"];
+
+		window.onload=function(){
+			var provSelect = document.getElementById("prov");
+			var citySelect = document.getElementById("city");
+			provSelect.onchange=function(){
+				// 清理city的下拉框里的选项
+				citySelect.length=1;
+				// 得到省下拉框改变后的值，表示的是具体的城市
+				var idx = provSelect.value;
+				// 从数组里面得到相应的城市数组
+				var cityOfProvince = citys[idx];
+				// 根据城市数据创建option对象，并添加到城市下拉框中
+				for (var i = 0; i < cityOfProvince.length; i++) {
+					var opt = document.createElement("option");
+					opt.value=i;
+					opt.innerHTML=cityOfProvince[i];
+					citySelect.appendChild(opt);
+				}
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<select id="prov">
+		<option>==请选择==</option>
+		<option value="0">北京</option>
+		<option value="1">重庆</option>
+	</select>
+	<select id="city">
+		<option>==请选择==</option>
+	</select>
+</body>
+</html>

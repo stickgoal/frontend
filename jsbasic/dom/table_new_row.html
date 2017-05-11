@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>new row</title>
+	<style>
+		tr,td,th{
+			border:1px solid black;
+			width: 80px;
+		}
+		table{
+			border-collapse: 1px;
+		}
+	</style>
+	<script>
+		window.onload=function(){
+			var table =	q("table");
+			var nameInput =	q("input[name=name]");
+			var ageInput =	q("input[name=age]");
+			var classNameInput = q("input[name=className]");
+			var btn = q("button#add");
+
+			var delBtn = q(".del");
+
+			// 删除行
+			function delRow(e){
+				var btn = e.target;
+				// btn -》 td -》 tr
+				var tr = btn.parentNode.parentNode;
+				tr.parentNode.removeChild(tr);
+			}
+			// 删除按钮的点击事件处理函数指向delRow
+			delBtn.onclick=delRow;
+
+			btn.onclick=function(){
+
+				var tr = create("tr");
+
+				var nameTd = create("td");
+				nameTd.innerHTML=nameInput.value;
+				var ageTd = create("td");
+				ageTd.innerHTML=ageInput.value;
+				var classNameTd = create("td");
+				classNameTd.innerHTML=classNameInput.value;
+
+				var btnTd = create("td");
+				var button = create("button");
+				button.class="del";
+				button.innerHTML="删除";
+				// 删除按钮的点击事件处理函数指向delRow
+				button.onclick=delRow;
+
+				btnTd.appendChild(button);
+
+
+				tr.appendChild(nameTd);
+				tr.appendChild(ageTd);
+				tr.appendChild(classNameTd);
+				tr.appendChild(btnTd);
+
+				table.appendChild(tr);
+
+			}
+		}
+
+		function q(selector){
+			return document.querySelector(selector);
+		}
+
+		function create(tagName){
+			return document.createElement(tagName);
+		}
+		
+	</script>
+</head>
+<body>
+	<div>
+		<input type="text" name="name" placeholder="输入姓名">
+		<input type="number" name="age" placeholder="输入年龄">
+		<input type="text" name="className" placeholder="输入班级">
+		<button id="add">添加</button>
+	</div>
+	<table>
+		<tr>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>班级</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<td>王二</td>
+			<td>23</td>
+			<td>Java一班</td>
+			<td><button class="del">删除</button></td>
+		</tr>
+	</table>
+</body>
+</html>

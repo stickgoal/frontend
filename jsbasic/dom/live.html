@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>live</title>
+	<script>
+		window.onload=function(){
+			var input =  document.querySelector("input");
+			var p = document.querySelector("p");
+			input.onkeyup=function(){
+				p.innerHTML=input.value;
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" placeholder="请输入内容">
+	<p></p>
+</body>
+</html>
