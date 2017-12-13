@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>定位布局</title>
+    <style media="screen">
+    *{
+      margin:0;
+      box-sizing: border-box;
+    }
+      body{
+        margin-bottom:100px;
+      }
+      .container{
+      	position: relative;
+        height: 800px;
+        border:5px solid blue;
+      }
+      nav{
+        position: absolute;
+        width: 200px;
+        border: 5px solid yellow;
+      }
+      section{
+        margin-left:200px;
+        height: 30%;
+      }
+      footer{
+        position: fixed;
+        bottom: 0px;
+        height: 70px;
+        width: 100%;
+        text-align: center;
+        border: 5px solid #369;
+      }
+      /*.container {
+  position: relative;
+}
+nav {
+  position: absolute;
+  left: 0px;
+  width: 200px;
+}
+section {
+  /* position is static by default */
+  margin-left: 200px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  background-color: white;
+  width: 100%;
+}
+body {
+  margin-bottom: 120px;
+}*/
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="home">home</a></li>
+        </ul>
+      </nav>
+
+    <section id="a">
+      这是sectionA
+    </section>
+    <section id="b">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Mauris ante ligula, facilisis sed ornare eu, lobortis in odio. Praesent convallis urna a lacus interdum ut hendrerit risus congue. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta. Cras ac leo purus. Mauris quis diam velit.
+    </section>
+    <section id="c">
+      这是sectionC
+    </section>
+    </div>
+    <footer>
+      我是footer
+    </footer>
+  </body>
+</html>

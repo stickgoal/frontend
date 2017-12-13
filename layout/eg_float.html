@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>float布局</title>
+    <style media="screen">
+    *{
+      margin:0;
+    }
+    #container{
+      height: 800px;
+      min-width: 600px;
+      /*border: 1px solid red;*/
+    }
+    nav{
+      height: 35px;
+    }
+    nav a:link,nav a:visited{
+      vertical-align: middle;
+      text-decoration: none;
+      color:#369;
+      margin:5px;
+      border:1px solid white;
+    }
+    nav a:hover{
+      border:1px solid yellow;
+    }
+    #content{
+      height: 80%;
+      width: 100%;
+    }
+    #left{
+      width: 15%;
+      min-height: 500px;
+      background-color: blue;
+      float:left;
+    }
+    #right{
+      width: 85%;
+      min-height: 500px;
+      background-color:yellow;
+      float:left;
+    }
+    .clear{
+      clear:both;
+    }
+    </style>
+  </head>
+  <body>
+<div id="container">
+
+<nav>
+    <a href="index.html">首页</a>
+    <a href="price.html">价格</a>
+    <a href="contact.html">联系我们</a>
+</nav>
+<div class="content">
+  <div id="left">
+    内容简介
+  </div>
+  <div id="right">
+      具体内容
+  </div>
+  <div class="clear">
+
+  </div>
+</div>
+<div id="footer">
+  &copy;	2016年麦子&reg;科技版权所有
+</div>
+</div>
+  </body>
+</html>

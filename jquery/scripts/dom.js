@@ -7,6 +7,8 @@ $(function () {
         item.insertBefore($("li:last"));
     });
     // 删除
+    //事件delegation,因为事件传播原因，.close被点击实际上也是#app被点击，
+    //第二个参数.close确认了是否是指定的对象
     $("#app").on("click",".close",function () {
         $(this).parents("li").remove();
     });
