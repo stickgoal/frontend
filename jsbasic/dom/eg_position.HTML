@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#box{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: #333;
+		}
+	</style>
+</head>
+<body>
+
+<div id="box"></div>
+<script type="text/javascript">
+	var box = document.getElementById('box');
+	setInterval(function(){
+		var ot = Math.floor(Math.random()*600);
+		console.log(ot);
+		box.style.position='absolute';
+		box.style.top=ot+'px';
+		box.style.left=(Math.floor(Math.random()*1000))+"px";
+		box.style.backgroundColor="#"+getColor()+getColor()+getColor()+getColor()+getColor()+getColor();
+	},1000);
+		function getColor() {
+			var src='0123456789abcef';
+			return src.charAt(Math.floor((Math.random()*src.length)));
+		}
+
+</script>
+</body>
+</html>

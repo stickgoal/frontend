@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM</title>
+	<meta charset="utf-8">
+<style type="text/css">
+	#container{
+		color:white;
+		width: 900px;
+		margin: 0 auto;
+	}
+	.box{
+		float: left;
+	}
+</style>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+
+		var container = document.getElementById("container");
+		var elements = [];
+		for (var i = 8; i > 0; i--) {
+			var c = document.createElement("div");
+			c.className='box';
+			c.id='box'+i;
+			//获取DOM对象
+			console.log(c);
+			//改变样式
+			c.style.width="200px";
+			c.style.height="200px";
+			//定时
+			container.appendChild(c);
+			elements.push(c);
+		}
+		setInterval(function(){
+			for (var i = elements.length - 1; i >= 0; i--) {
+				setColor(elements[i]);
+			}
+		},500);
+
+		function setColor(e){
+			e.style.backgroundColor="#"+getColor()+getColor()+getColor()+getColor()+getColor()+getColor();
+		}
+		function getColor() {
+			var src='0123456789abcef';
+			return src.charAt(Math.floor((Math.random()*src.length)));
+		}
+
+	</script>
+</body>
+</html>

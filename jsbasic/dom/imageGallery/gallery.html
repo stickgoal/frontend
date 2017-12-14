@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图片</title>
+	<style type="text/css">
+		#gallery{
+			width: 700px;
+			height: 500px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#main_img{
+			width: 100%;
+			height:100%;
+		}
+		.thumb-bar{
+			position: absolute;
+			bottom: 0px;
+		}
+
+		.thumb-bar img{
+			width: 100px;
+			height: 100px;
+			float:left;
+		}
+	</style>
+	<script type="text/javascript">
+			var imgSrcArr = ['0.jpg','1.jpg','2.jpg','3.jpg','4.jpg','5.jpg'];
+			
+		window.onload=function(){
+			var mainImg = document.getElementById('main_img');
+
+			var thumbBar = document.querySelector('.thumb-bar');
+			var g = document.querySelector('#gallery');
+
+			var thumbSize= 700/imgSrcArr.length;
+			for (var i = 0; i <imgSrcArr.length; i++) {
+				var img = createImg(imgSrcArr[i]);
+				img.style.width=thumbSize+'px';
+				img.style.height=thumbSize+'px';
+				img.onmouseover=function(e){
+					mainImg.src=e.target.src;
+				}
+				thumbBar.appendChild(img);
+			}
+
+			run(mainImg);
+		}
+		function createImg(src){
+			var img = document.createElement('img');
+			img.setAttribute('src',src);
+			return img;
+		}
+		function run(img){
+			setInterval(function(){
+				var prevSrc = img.src;
+				var prev = prevSrc.slice(prevSrc.lastIndexOf('/')+1);
+				if(prev){
+					var idx = imgSrcArr.indexOf(prev);
+					var intNum = ++idx;
+					if(intNum>(imgSrcArr.length-1)){
+						intNum=0;
+					}
+					img.src=intNum+".jpg";
+				}else{
+					img.src=imgSrcArr[0];
+				}
+			},3000);
+		}
+	</script>
+</head>
+<body>
+<div id="gallery">
+	<img id="main_img" src="0.jpg">
+	<div class="thumb-bar">
+		
+	</div>
+</div>
+</body>
+</html>
