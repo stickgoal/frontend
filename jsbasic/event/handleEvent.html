@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>绑定事件的几种方式</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			//dom2方式绑定事件，参数为：事件名，处理函数，是否捕获
+			//第三个参数控制事件处理的顺序
+			document.querySelector('#container').addEventListener('click',function(){
+				alert("container clicked");
+			},false);
+
+			document.querySelector('.box').onclick=function(){
+				alert("box clicked");
+			}
+			document.querySelector('p').onclick=function(e){
+				alert("p clicked");
+				e.stopPropagation();
+			}
+		}
+	</script>
+
+</head>
+<body>
+<div id="container">
+	
+	<div class="box">1
+		<p class="content">
+			你好，我在<span>路上</span>
+		</p>
+	</div>
+	<div class="box">2</div>
+	<div class="box">3</div>
+
+</div>
+</body>
+</html>
