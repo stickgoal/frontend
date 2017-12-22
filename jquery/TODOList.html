@@ -1,0 +1,56 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jquery dom 操作</title>
+    <script src="scripts/jquery-3.1.0.js"></script>
+    <script src="scripts/todolist.js"></script>
+    <style>
+    	*{
+    		margin:0;
+    		padding:0;
+    	}
+        ul {
+            list-style: none;
+        }
+        .item{
+            margin-top: 10px;
+            padding: 5px;
+        }
+
+        #app {
+        	font-family: "微软雅黑 Light";
+            font-size: 20px;
+            color:#E08031;
+            width:1000px;
+            height:700px;
+            margin: 0 auto;
+            padding-left: 10px;
+            background-color: #044D22;
+        }
+        .close, #add, .up, .down {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1>我的待办事项</h1>
+    <form action="javascript:;">
+        <input type="text" name="new"/>
+        <button id='add'>添加</button>
+        <button id='del'>删除</button>
+    </form>
+    <ul id='list'>
+        <li class="item">
+        	<input type="checkbox">
+            <span class='content'>买西瓜</span>
+            <span class="close">&times;</span>
+            <span class="up">上</span>
+            <span class="down">下</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

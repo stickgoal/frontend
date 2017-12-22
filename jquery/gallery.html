@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图片</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#gallery{
+			width: 700px;
+			height: 500px;
+			margin: 0 auto;
+			position: relative;
+		}
+		#main_img{
+			width: 100%;
+			height:100%;
+		}
+		.thumb-bar{
+			position: absolute;
+			width: 100%;
+		}
+
+	</style>
+	<script type="text/javascript" src="scripts/jquery-3.1.0.js"></script>
+	<script type="text/javascript">
+		var imgSrcArr = ['imgs/a.jpg','imgs/1.jpg','imgs/2.jpg','imgs/3.jpg','imgs/4.jpg','imgs/5.jpg'];
+		$(function(){
+			//跑起来
+			var index=0;
+			var run = function(){
+				if(++index>imgSrcArr.length-1){
+					index=0;
+				}
+				main.fadeOut(500,function(){
+						main.attr('src',imgSrcArr[index]);
+						main.fadeIn(2000);
+					});
+			};
+			var intervalId = setInterval(run,500);
+			
+			//创建缩略图
+			var tb =$('.thumb-bar');
+			var main = $('#main_img');
+			var thumbSize=tb.width()/imgSrcArr.length;
+			tb.css('bottom',-thumbSize);
+			for (var i = 0; i < imgSrcArr.length; i++) {
+				var img = $('<img/>');
+				img.attr('src',imgSrcArr[i]);
+				img.css({'height':thumbSize,'width':thumbSize});
+				img.mouseover(function(e){
+					//停止自动循环
+					clearInterval(intervalId);
+					//设置主图的SRC属性
+					main.fadeOut(2000,function(){
+						main.attr('src',e.target.src);
+						main.fadeIn(2000);
+					});
+				}).mouseleave(function(e){
+					var imgSrc = $(e.target).attr('src');
+					//找到当前图片位置，自动循环从当前位置开始
+					for (var i = 0; i < imgSrcArr.length; i++) {
+						if(imgSrcArr[i]===imgSrc){
+							index=i;
+						}
+					}
+ 					intervalId = setInterval(run,500);
+				});
+				tb.append(img);
+			}
+			});
+	</script>
+</head>
+<body>
+<div id="gallery">
+	<img id="main_img" src="imgs/a.jpg">
+	<div class="thumb-bar">
+		
+	</div>
+</div>
+</body>
+</html>

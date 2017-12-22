@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jquery dom 操作</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script src="app.js"></script>
+    <style>
+        * {
+            font-family: "微软雅黑 Light";
+            font-size: 20px;
+        }
+
+        ul {
+            list-style: none;
+            text-align: center;
+        }
+        .item{
+            margin-top: 10px;
+            padding: 5px;
+        }
+
+        #app {
+            text-align: center;
+        }
+        .close, #add, .up, .down {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>我的待办事项</div>
+    <form action="javascript:;">
+        <input type="text" name="new"/>
+        <button id='add'>add</button>
+    </form>
+    <ul id='list'>
+        <li class="item">
+            <span class='item'>买西瓜</span>
+            <span class="close">&times;</span>
+            <span class="up">上</span>
+            <span class="down">下</span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
