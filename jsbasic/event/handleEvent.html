@@ -6,6 +6,7 @@
 		window.onload=function(){
 			//dom2方式绑定事件，参数为：事件名，处理函数，是否捕获
 			//第三个参数控制事件处理的顺序
+			//为true使用捕获方式，从父到子，为false使用冒泡从子到父
 			document.querySelector('#container').addEventListener('click',function(){
 				alert("container clicked");
 			},false);

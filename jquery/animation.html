@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jquery特效</title>
+    <script src="scripts/jquery-3.1.0.js"></script>
+    <script>
+    $(function () {
+        var w = $('#container').width();
+        var h = $('#container').height();
+        $.each($('.box'),function(idx,elem){
+            $(elem).animate(
+                {
+                    left:'+='+(Math.random()*w/5)+'px',
+                    top:(Math.random()*h/5)+'px',
+                    speed:600,
+                    opacity:0.8,
+                },'swing',function(){
+                console.log(getColor());
+                $(this).css('background-color',getColor());
+            });
+        });
+        function getColor() {
+            var src='0123456789abcef';
+            var result = '#';
+            for (var i = 0; i < 6; i++) {
+                result+=src.charAt(Math.floor((Math.random()*src.length)));
+            }
+            return result;
+        }
+    });
+</script>
+<style type="text/css">
+        .box{
+            width: 100px;
+            height: 100px;
+            margin:5px;
+            background-color: #ddd;
+            position: relative;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="box">A</div>
+    <div class="box">B</div>
+    <div class="box">C</div>
+    <div class="box">C</div>
+    <div class="box">C</div>
+    <div class="box">C</div>
+</div>
+
+</body>
+</html>
