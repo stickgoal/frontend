@@ -18,17 +18,18 @@
         generateCards();
         $(function () {
             $('#deal').on('click',function () {
-            	$('.box div').remove();
+            	$('.card').remove();
                 for(var p=0;p<2;p++){
                     for(var i =0;i<3;i++){
                     	var text = cards[parseInt(Math.random()*(cards.length-1))];
                     	console.log(text);
-                        var card = $('<div class="card">').text(text);
+                        var card = $('<div class="card">').text(text).hide();
                         $('.box:eq('+p+')').append(card);
                     }
                 }
+                $('.card').fadeIn('slow');
 
-                setTimeout(calc,500);
+                setTimeout(calc,1000);
                 
             });
             function calc(){
