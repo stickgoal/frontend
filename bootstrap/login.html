@@ -7,7 +7,7 @@
     <title>我的云盘 Resource Anywhere</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,6 +22,10 @@
       .starter-template {
         padding: 40px 15px;
         text-align: center;
+      }
+      #carousel-generic{
+        width: 70%;
+        margin:0 auto;
       }
     </style>
   </head>
@@ -94,17 +98,8 @@
   </div>
 </div>
 
-
-<!-- 巨幕 -->
-<div class="jumbotron" style="margin-top: -20px;">
-  <div class="container">
-      <h1>欢迎您来到云盘，</h1>
-      <p>快<button class="btn-primary">开始</button>您的云上生活吧！</p>
-    </div>
-</div>
-
 <!-- 幻灯片 -->
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="margin-top: -30px;">
+<div id="carousel-generic" class="carousel slide" data-ride="carousel" style="margin-top: -30px;">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -148,18 +143,25 @@
   </a>
 </div>
 
+<!-- 巨幕 -->
+<div class="jumbotron" style="margin-top: -20px;">
+  <div class="container">
+    <h1>欢迎您来到云盘，</h1>
+    <p>快<button class="btn-primary">开始</button>您的云上生活吧！</p>
+  </div>
+</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./js/jquery-3.1.0.js"></script>
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
       $('.carousel').carousel({
-        interval: 2000
+        interval: 5000
       })
     </script>
   </body>
