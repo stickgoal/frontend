@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cards</title>
+    <script src="./scripts/jquery-3.1.0.js"></script>
+    <script>
+        var cards = [];
+        var symbols = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+        function generateCards(){
+            for(var c = 0 ;c< 4;c++){
+             for(var i = 0 ;i < 13;i++){
+                cards.push(symbols[i]);
+                }
+            }
+            console.log(cards);
+        }
+        generateCards();
+        $(function () {
+            $('#deal').on('click',function () {
+            	$('.box div').remove();
+                for(var p=0;p<2;p++){
+                    for(var i =0;i<3;i++){
+                    	var text = cards[parseInt(Math.random()*(cards.length-1))];
+                    	console.log(text);
+                        var card = $('<div class="card">').text(text);
+                        $('.box:eq('+p+')').append(card);
+                    }
+                }
+
+                setTimeout(calc,500);
+                
+            });
+            function calc(){
+            	var scoreOfA = 0;
+            	var scoreOfB = 0;
+            	$('.box:eq(0) .card').each(function(idx,ele){
+            		scoreOfA +=parseInt(cards.indexOf(ele.textContent));
+            	});
+            	$('.box:eq(1) .card').each(function(idx,ele){
+            		scoreOfB +=parseInt(cards.indexOf(ele.textContent));
+            	});
+            	console.log('A:'+(scoreOfA+3)+' B:'+(scoreOfB+3))
+            	var result = scoreOfA>scoreOfB?'A选手获胜':'B选手获胜';
+            	alert(result)
+
+            }
+        });
+    </script>
+    <style type="text/css">
+        #container{
+            width: 1000px;
+            height:500px;
+            background-color: #eea236;
+            margin:0 auto;
+        }
+        .box{
+            width: 48%;
+            height:80%;
+            background: #eeeeee;
+            margin:1%;
+            float: left;
+        }
+        #bottom{
+            clear: left;
+            text-align: center;
+        }
+        .card{
+            width:30%;
+            height:40%;
+            border-radius: 10px;
+            margin:5px;
+            border:1px solid yellow;
+            background-color: #9966ff;
+            text-align: center;
+            font-size: 100px;
+          	color: white;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="box">
+        <h1>A选手</h1>
+    </div>
+    <div class="box">
+    <h1>B选手</h1></div>
+    <div id="bottom">
+        <button id="deal">发牌</button>
+<!--         <button id="calc">算结果</button>
+ -->    </div>
+</div>
+</body>
+</html>
