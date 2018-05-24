@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js</title>
+	<style type="text/css">
+		.box{
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			background: radial-gradient(white,limegreen);
+			position: absolute;
+			top:50%;
+			left: 50%;
+		}
+	</style>
+</head>
+<body>
+<div class="box"></div>
+
+
+<script type="text/javascript">
+	var div = document.querySelector(".box");
+	div.onmouseover=function(){
+
+		div.style.background="radial-gradient(white,"+getRandomColor()+")";
+		div.style.position="absolute";
+		var left = div.style.left;
+		console.log(left);
+		var loc = "300";
+		if(left){
+			var loc = left.substring(0,(""+left).length-2);
+		}
+		div.style.left=(randomOp(Number(loc),Math.random()*300))+"px";
+		div.style.top=(randomOp(Number(loc),Math.random()*300))+"px";
+	}
+	function getRandomColor(){
+		var color="rgb("+randomColor()+","+randomColor()+","+randomColor()+")";
+		return color;
+	}
+	function randomColor(){
+		return (Math.floor(Math.random()*256));
+	}
+	function randomOp(old,step){
+		return (Math.floor(Math.random()*10)%2)==1?old+step:old-step;
+	}
+
+
+	div.onclick=function(){
+		div.style.left="50%";
+		div.style.top="50%";
+	}
+</script>
+</body>
+</html>
