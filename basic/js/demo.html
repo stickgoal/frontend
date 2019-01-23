@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>box</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background:radial-gradient(white,limegreen) ;
+			position: absolute;
+			left: 50%;
+			top: 30%;
+		}
+	</style>
+</head>
+<body>
+<div class="box"></div>
+<script type="text/javascript">
+	//定位到.box这个div
+	var hezi = document.querySelector(".box");
+	//在点击的时候将它的left等于100px
+	hezi.onclick=function(){
+		hezi.style.left="100px";
+		hezi.style.top="100px";
+		hezi.style.background="radial-gradient(white,orange)";
+	}
+	hezi.ondblclick=function(){
+		hezi.style.left="300px";
+		hezi.style.top="300px";
+		hezi.style.background="radial-gradient(white,gray)";
+
+	}
+
+</script>
+</body>
+</html>

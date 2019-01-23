@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>for</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		div{
+			font-size: 100px;
+			color:limegreen;
+		}
+	</style>
+	<script type="text/javascript">
+		//开始?
+		//结束?
+		//重复?
+
+			//   A ;  B  ;C
+		for(var i=0;i<10;i++){
+			//D
+			document.write("<div>"+i+"</div>");
+		}
+		//A -> B -> D -> C -> B -> D -> C ->....
+		//
+
+		var result = 0;
+		for(var i=1;i<=100;i+=2){
+			document.write("<div>第"+i+"次: result="+result+"</div>")
+			result = result+i;
+		}
+		document.write("<div>1+2+...+100="+result+"</div>");
+
+		for(var i=100;i>=0;i--){
+			document.write("<div>"+i+"</div>")
+		}
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>定位</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding:0px;
+		}
+
+
+		.box{
+			width: 200px;
+			height: 200px;
+			margin-bottom: 5px;
+			color:white;
+			font-size: 100px;
+			text-align: center;
+			text-shadow: 2px 2px 2px black;
+			/*单行高度，于元素高度相同时纵向居中*/
+			line-height: 200px;
+			background-color: limegreen;
+
+			/*块级元素 block / 行内元素 inline*/
+		
+		}
+		#b2{
+			/*位置*/
+			/*static 默认*/
+			/*fixed 固定定位，相对于窗口而言是固定的*/
+			/*relative 相对定位*/
+			/*absolute 绝对定位*/
+			position: fixed;
+			/*定位辅助属性top顶部、bottom底部、left左、right右*/
+			right: 0px;
+			bottom: 100px;
+		}
+		#container{
+			width: 700px;
+			height: 1000px;
+			background-color: blue;
+
+		}
+
+		#b1{
+			/*绝对定位 1）参考第一个非static的祖先（父，祖父，曾祖父）元素或者body 2）不保留原有的空间*/
+			position: absolute;
+			left: 100px;
+			top: 100px;
+		}
+		#yeye{
+			position: relative;
+			left: 100px;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- #b3{
+			/*relative 相对定位，1）相对于元素本来的位置，2）保留原有的空间*/
+			position: relative;
+			/*离左边有200px*/
+			left: 200px;
+			/*离上边有200px*/
+			top:200px;
+		}
+
+		#b1{
+			position: absolute;
+			left: 100px;
+			top: 100px;
+		} -->
+<div id="container">
+	<div id="yeye">
+		<div id="baba">
+			<div class="box" id="b1">1</div>
+			<div class="box " id="b2">2</div>
+			<div class="box" id="b3">3</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

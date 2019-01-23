@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>函数</title>
+	<script type="text/javascript">
+		//声明函数
+		//function=> 关键字声明这是个函数
+		//sayHello=> 函数名
+		//(name) => 参数列表
+		//{alert(...}} =>函数体
+		function sayHello(name){
+			alert("hello,"+name+"!");
+			// for (var i = 0; i < 3; i++) {
+			// 	document.write("<h1>Hello</h1>");
+			// }
+		}
+		 // sayHello("灭霸");
+
+
+		 function add(a,b){
+		 	return a+b;
+		 }
+
+		 var result = add(3,5);
+		 alert(result);
+
+		 function cv(name,job,age){
+		 	return name+"今年"+age+"岁,职业为"+job;
+		 }
+		 document.write(cv("特朗普","美国总统",65));
+		 document.write(cv("罗玉凤","网红",30));
+
+		 //var声明的变量,若在全局作用域中声明,则函数中可以访问
+		 var aaa = "你好";
+
+		 function notice(){
+		 	alert(aaa);
+		 	//var声明的变量,若在函数作用域中声明,则外部无法访问
+		 	var bbb = "我不好";
+		 	//没用var声明的变量,是全局变量,外部可以访问
+ 		 	ccc = 123;
+		 }
+		 notice();
+		 alert(ccc);
+		 alert(bbb);
+
+	</script>
+</head>
+<body>
+																						<!-- 函数调用 -->
+<img src="http://img0.imgtn.bdimg.com/it/u=2770464251,811355473&fm=200&gp=0.jpg"  onclick="sayHello('郭德纲')" />
+<img src="http://img1.imgtn.bdimg.com/it/u=704766850,914205645&fm=200&gp=0.jpg"  onclick="sayHello('小熊猫')" />
+</body>
+</html>

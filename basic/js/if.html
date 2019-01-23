@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>if</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		var age = 0;
+		if(age>60){
+			alert("老年")
+		}else if(age>=40){
+			alert("中年");
+		}else if(age>=30){
+			alert("青年");
+		}else if(age>=18){
+			alert("已成年");
+		}else{
+			alert("未成年");
+		}
+
+		function sayHello(language){
+			switch(language){
+				case 'tw':
+				case 'cn':
+					alert("你好");
+					break;
+				case 'en':
+					alert("Hello");
+					break;
+				case 'fr':
+					alert("Bonjour");
+					break;
+				case 'th':
+					alert("สวัสดี");
+					break;
+				default:
+					alert("不支持语言"+language);
+			}
+		}
+
+		sayHello("cn");
+		sayHello("tw");
+		// sayHello("fr");
+		// sayHello("th");
+		// sayHello("bl");
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

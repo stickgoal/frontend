@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<form action="" method="post">
+	<!-- 所有的input标签都有的属性，disabled完全禁用，readonly只读，区别在于disabled不会提交数据，readonly会 -->
+	<div>
+		<label>disabled readonly</label>
+		<input type="text" disabled="disabled" value=123 name=""/>
+		<input type="text" readonly="readonly" value="123" name=""/>
+	</div>
+
+	<div>
+		<label>number 数字</label>
+		<!-- type="number" -->
+		<!-- max最大值，min最小值，step每次新增的步长 -->
+		<input type="number" name="salary" max="10000" min="5000" step="1000" >
+	</div>
+
+	<div>
+		<label>date 日期、time时间</label>
+		<!-- type="date" -->
+		<input type="date" min="2008-01-01" max="2018-05-14" name="">
+		<input type="time" name="">
+	</div>
+
+	<div>
+		<label>color 颜色</label>
+		<input type="color" name="">
+	</div>
+
+	<div>
+		<label>range 区间</label>
+		<label>0</label><input type="range" max="100" min="0" step="10" name=""><label>100%</label>
+	</div>
+
+	<div>
+		<label>email 电子邮件</label>
+		<input type="email"/>
+	</div>
+
+	<div>
+		<input type="submit" name="">
+	</div>
+</form>
+
+</body>
+</html>

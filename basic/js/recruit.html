@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>征兵</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		/*条件：男，身高170厘米以上，20--26周岁;女，身高162厘米以上，20---22周岁之间,判断是否可以应征入伍！*/
+
+		var sex="女";
+		var age=24;
+		var height=180;
+		if(sex=="男"){
+			if(height>170&&age>=20&&age<=26){
+				alert("通过")
+			}else{
+				alert("不通过")
+			}
+		}else if(sex=="女"){
+			if(height>162&&age>=20&&age<=22){
+				alert("通过")
+			}else{
+				alert("不通过")
+			}
+		}else{
+			alert("性别不正确");
+		}
+
+		//国内航班托运行李一般规定:长不超过100cm,宽不超过60cm,高不超过40cm,重量在50kg以内,请写代码判断某件行李是否符合要求
+		var length =100;//长
+		var width = 55;//宽
+		var height = 30;//高
+		var weight = 45;//重量
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

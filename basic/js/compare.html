@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>比较运算符</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		
+
+		var x = 5;
+		var y = 6;
+		document.write("x="+x+",y="+y);
+		document.write("<br/>x > y "+(x>y));
+		document.write("<br/>x >= y "+(x>=y));
+		document.write("<br/>x <= y "+(x<=y));
+		document.write("<br/>x < y "+(x<y));
+		document.write("<br/>x == y "+(x==y));
+		document.write("<br/>x === y "+(x===y));
+
+		var x = 5;
+		var y = "5";
+		document.write("<br/>x="+x+",y="+y);
+		document.write("<br/>x == y "+(x==y));
+		document.write("<br/>x === y "+(x===y));
+
+		//&&(双与) ||(双或)  &(单与) |(单或)
+		//&& 两边同为true才为true,否则为false
+		var a = 10,b=5,c=7;
+		document.write("<br> a>b && a>c "+(a>b && a>c));
+		document.write("<br> a&lt;b && a>c "+(a<b && a>c));
+		document.write("<br> a&lt;b && a&lt;c "+(a<b && a<c));
+		document.write("<br> a>b && a&lt;c "+(a>b && a<c));
+
+		//|| 有一边为true则为true,否则为false
+		document.write("<br> a>b || a>c "+(a>b || a>c));
+		document.write("<br> a&lt;b || a>c "+(a<b || a>c));
+		document.write("<br> a&lt;b || a&lt;c "+(a<b || a<c));
+		document.write("<br> a>b || a&lt;c "+(a>b || a<c));
+		//&& 和 || 会短路,当第一个为false,&&不会执行后一个;当第一个为true,||不会执行后一个
+		//& 和 |  不会短路,
+
+		var a = 10,b=5;
+		document.write("<br/>"+(a>b||(++a)>b));
+		document.write("<br/>a的值为"+a);
+
+
+		//三元运算符
+		var result = (a>b || a>c)?a:b;
+		document.write("<br/>result的值为"+result);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

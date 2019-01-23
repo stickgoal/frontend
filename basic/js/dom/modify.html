@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>修改</title>
+
+</head>
+<body>
+<div>
+	一段文字
+</div>
+
+<p>另一段文字</p>
+
+<img src="http://a.hiphotos.baidu.com/image/pic/item/730e0cf3d7ca7bcb6a172486b2096b63f624a82f.jpg"/>
+
+<script type="text/javascript">
+	document.write("<div><a href='https://baidu.com'>百度</a></div>");
+
+	//改变内部的HTML
+	var div = document.querySelector("div");
+	div.innerHTML="<img src='http://e.hiphotos.baidu.com/image/pic/item/a2cc7cd98d1001e98517929cb40e7bec54e7977e.jpg'/>";
+	//改变内部文本
+	var p = document.querySelector("p");
+	p.innerText="你好哇!";
+	//改变元素属性
+	var img = document.querySelector("img");
+	img.src="http://h.hiphotos.baidu.com/image/h%3D300/sign=06d6aa88ca5c10383b7ec8c28210931c/2cf5e0fe9925bc31b3e6ab0a52df8db1ca1370ed.jpg";
+
+	var a  = document.querySelector("a");
+	a.href="https://www.bing.com";
+</script>
+</body>
+</html>

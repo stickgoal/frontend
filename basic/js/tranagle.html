@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>for</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		var lines = 6;
+		for(var i=0;i<lines;i++){
+			//控制输出单行的*数量
+			for(var j=0;j<(i+1);j++){
+				document.write("*")
+			}
+			document.write("<br/>")
+		}
+
+		for (var i = 0; i < 6; i++) {
+			//输出空白,推到中间
+			for(var j=0;j<(i+1);j++){
+				document.write("&nbsp;")
+			}
+			//输出若干个*
+			for(var x = 0;x<(2*(6-i-1)+1);x++){
+				document.write("*")
+			}
+			document.write("<br/>")
+
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>
