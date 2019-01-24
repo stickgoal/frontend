@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>使用layui</title>
+  <link rel="stylesheet" href="layui/css/layui.css">
+  <style type="text/css">
+    .layui-upload-img{
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+<div class="layui-container">
+<form action="uplaodPhoto" method="post">
+<button type="button" class="layui-btn" id="test1">
+  <i class="layui-icon layui-icon-add-circle-fine"></i>上传图片
+</button>
+
+<div class="layui-upload-list">
+    <img class="layui-upload-img" id="demo1">
+    <p id="demoText"></p>
+  </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">照片描述</label>
+      <div class="layui-input-block">
+        <textarea placeholder="请输入内容" name="comment" class="layui-textarea"></textarea>
+      </div>
+    </div>
+    <button type="button" class="layui-btn" id="testListAction">开始上传</button>
+</form>
+</div>
+<script type="text/javascript" src="layui/layui.js"></script>
+<script type="text/javascript">
+	layui.use(['upload'],function (argument) {
+		var upload = layui.upload;
+    var $ = layui.jquery;
+    console.log(upload);
+    upload.render({
+      elem:"#test1",
+      url:'upload',
+      before:function(obj){
+        obj.preview(function(index,file,result) {
+          $('#demo1').attr("src",result);
+        })
+      },
+      auto:false,
+      bindAction:"#testListAction",
+      done:function (res) {
+        console.log("upload result : "+res);
+      },
+      data:{
+        id: function (argument) {
+         return document.querySelector("[name=comment]").value;
+        }
+      },
+      error:function (e) {
+        layer.msg("error"+ e);
+      }
+    })
+
+
+	})
+</script>
+</body>
+</html>

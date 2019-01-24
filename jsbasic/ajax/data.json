@@ -4,7 +4,7 @@
 		"request":{"uri":"/weather"},
 		"response" : { 
 			"headers" :{"Access-Control-Allow-Origin":"*"},
-			"json" :{"weather":"下雨天","temp":"18°C"} 
+			"json" :{"weather":"下雨天","temp":"18"} 
 		}
 	},
 	{
