@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>对象</title>
+	<script type="text/javascript">
+		/*
+		* 对象 有 属性 + 方法
+		* 分别表示 数据+ 和  行为v
+		* 描述孔雀:
+		*	颜色+ \ 进食v \ 跑v \ 开屏v \ 表面覆盖有羽毛+ \ 跳v \ 高度+ \ 生气v \ 宽度+ \ 繁衍后代v \ 跳舞v \ 打架v \ 冥想v 
+		*/
+		//1. 自己声明对象
+		var peacock = {
+			color : ["大红色","翠绿色","墨绿色","宝石蓝"],
+			eat : function(food){
+				alert("孔雀在吃"+food);
+			},
+			run : function(){
+				alert("孔雀在跑");
+			},
+			spreadTail:function(){
+				alert("孔雀开屏啦");
+			},
+			skin:"羽毛",
+			jump:function(){
+				alert("孔雀跳啊跳");
+			},
+			//单位:厘米
+			height:180,
+			think:function(thought){
+				alert("孔雀在冥想"+thought);
+			}
+		};
+
+		peacock.eat("老虎");
+		alert("这只孔雀的颜色是"+peacock.color);
+		peacock.think("如何写代码");
+
+		//2. 使用别人所写的对象的属性和方法
+
+		var slogan = "往下扎根,向上结果";
+		//String的长度属性length
+		alert(slogan.length);
+		//charAt方法返回指定位置处的字母
+		alert(slogan.charAt(7));
+		//indexOf返回某个字符在字符串中的位置
+		alert(slogan.indexOf(','));
+
+		//3. 创建对象的其他方法
+
+		var tank = new Object();
+		tank.color="绿色";
+		tank.height=2.5;
+		tank.fire=function(){
+			alert("biu~biu~biu~");
+		};
+		tank.forward=function(speed){
+			alert("坦克正在以"+speed+"km/h的速度前进...");
+		};
+
+		tank.forward(200);
+		tank.fire();
+
+		var aircraftCarrier = new Object();
+
+		//函数声明
+		function max(a,b){
+			if(a>b){
+				return a;
+			}else{
+				return b;
+			}
+		}
+		function minus(a,b){
+			return a-b;
+		}
+
+		//函数调用
+		var maxNumber1 = max(12,3);
+		var maxNumber2 = max(120,360);
+		alert("最大数是"+maxNumber1);
+		alert("最大数是"+maxNumber2);
+		alert("12-8="+minus(12,8));
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

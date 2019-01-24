@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>flex 多列布局</title>
+	<style type="text/css">
+		/* reset */
+*{
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+}
+/* common */
+.default{
+	background-color: #ccc;
+}
+/* container */
+#container{
+}
+
+/* header */
+#header{
+	display:flex;
+	height:100px;
+	text-align: center;
+	margin:5px 0;
+}
+#header .default{
+	height: 100%;
+}
+#logo,#banner2{
+	width: 29%;
+}
+#banner1{
+	width:40%;
+	margin:0 1%;s
+}
+/* nav */
+#nav{
+	text-align: center;
+	margin: 5px 0px;
+}
+#main{
+	height: 500px;
+	width: 100%;
+	display: flex;
+
+}
+#left{
+	width: 59%;
+	margin-right: 1%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#right{
+	width: 40%;
+	display: flex;
+}
+#left .col1{
+	width: 49.5%;
+	margin-left: 0.25%;
+	margin-bottom: 5px;
+}
+#left .col2{
+	width: 24%;
+	margin-left: 1%;
+}	
+#left .first{
+  margin-left: 0%;
+}
+
+</style>
+
+</head>
+<body>
+	<div id="contianer">
+		<div id="header" >
+			<div class="default" id="logo">LOGO</div>
+			<div class="default banner" id="banner1">Banner1</div>
+			<div class="default banner" id="banner2">Banner2</div>
+		</div>
+		<div id="nav" class="default">
+			水平导航条
+		</div>
+		<div id="main">
+			<div id="left">
+				<div class="default col1">栏目一</div>
+				<div class="default col1">栏目二</div>
+				<div class="default col2 first">栏目三</div>
+				<div class="default col2 ">栏目四</div>
+				<div class="default col2 ">栏目五</div>
+				<div class="default col2 ">栏目六</div>
+			</div>
+			<div id="right">
+				<div class="default col3">栏目七</div>
+				<div class="default col3">栏目八</div>
+				<div class="default col3">栏目九</div>
+			</div>
+		</div>
+		<div id="footer" class="default">
+			页脚
+		</div>
+	</div>
+</body>
+</html>

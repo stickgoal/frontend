@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM</title>
+</head>
+<body>
+	<p id="someText">一段文字</p>
+	<p class="high">另一段文字</p>
+	<a href="https://baidu.com" >baidu</a>
+	<a href="https://bing.com" class="high" >bing</a>
+	<input type="text" name="hello" placeholder="你好"/>
+	<script type="text/javascript">
+		//从DOM中查找出元素
+		//1.通过ID查找
+		var p  = document.getElementById("someText");
+		p.style.color="limegreen";
+		p.style.fontFamily="楷体";
+
+		//2.通过标签名查找元素,参数是标签名字,返回是数组
+		var ps = document.getElementsByTagName("p");
+		console.log(ps);
+		ps[1].style.backgroundImage="url(http://h.hiphotos.baidu.com/image/pic/item/2cf5e0fe9925bc31b3e6ab0a52df8db1ca1370ed.jpg)";
+
+		//选择器:标签 ID(#) 类(.) 属性选择器([]) 后代( ) 兄弟(+) 直接子元素(>) 分组(,) 伪类(:)
+		//3.按照选择器查找页面元素,返回第一个符合条件的元素
+		var a = document.querySelector("a");
+		a.style.border="1px solid blue";
+
+
+		var input = document.querySelector("[name=hello]");
+		input.style.backgroundColor="blue";
+		//4.按照选择器查找页面元素,返回所有符合条件的元素
+		var highList = document.querySelectorAll(".high");
+		console.log(highList);
+		for (var i = 0; i < highList.length; i++) {
+			highList[i].style.fontSize="120px";
+		}
+
+
+		//把所有的a标签的内容改成大写
+		var as = document.querySelectorAll("a");
+		for (var i = 0; i < as.length; i++) {
+			as[i].style.textTransform="uppercase";
+		}
+	</script>
+</body>
+</html>

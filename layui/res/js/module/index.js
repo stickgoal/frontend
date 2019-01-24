@@ -2,11 +2,13 @@
   项目JS主入口
   以依赖layui的layer和form模块为例
 **/    
-layui.define(['layer','form'],function (exports) {
-	var layer = layui.layer,
-	form = layui.form;
+layui.define(['jquery','layer','form'],function (exports) {
+    var $ = layui.$,form = layui.form;
 
-	layer.msg("Hello,World");
+    form.on('submit(loginFormFilter)', function(data){
+        layer.msg(JSON.stringify(data.field));
+        return false;
+    });
 
 	exports('index',{})
 })

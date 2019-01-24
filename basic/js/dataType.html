@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>数据类型</title>
+	<script type="text/javascript">
+		//数字 Number
+		var distance = 25000;
+		var persons = 8.6;
+		//字符串 String
+		var name = "长征";
+		//对象 Object
+		var kuka = {
+			serialNo:"axewfa0123",
+			color:"orange",
+			work:function(){
+				alert("库卡机器人正在搞工作...");
+			}
+		}
+		console.log(kuka);
+		var player={
+			name : "詹姆斯",
+			position:"小前锋",
+			team:"骑士"
+		}
+		console.log(player);
+
+		//类型可变
+		var age = 12;
+		age = 15;
+		//==>变成Object
+		age = {
+			year:1996,
+			month:12,
+			day:1
+		};
+
+		age = "我今年9岁啦";
+
+		//布尔 Boolean 只有两个值 true | false
+		var eat = true;
+
+		//数组 Array 一组数据
+		var elevator = new Array();
+		elevator[0] = "旺财";
+		elevator[1] = "小强";
+		elevator[2] = "佩奇";
+		elevator[3] = {name:"小丽",age:22};
+		console.log(elevator);
+
+		var train = ["煤","天然气","炸药",{name:"本.拉登"}];
+		console.log(train);
+
+		//undefined类型,只有一个值 叫 undefined 
+		var rocket;
+		console.log(rocket);
+		rocket="火箭队";
+		console.log(rocket);
+
+		//null 空的,只有一个值 叫 null
+		var girlfriend = null;
+		console.log(girlfriend);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

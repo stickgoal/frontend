@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>选择器</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		/*标签选择器*/
+		h1{
+			background-color: black;
+			color:red;
+		}
+		/*ID选择器，#ID值*/
+		#container{
+			background-color: #eee;
+		}
+
+		#littleStar{
+			color:white;
+		}
+		/*类选择器 .className*/
+		.keyword{
+			color:gold;
+		}
+		.lb{
+			display: inline-block;
+			width: 50px;
+		}
+		/*属性选择器*/
+		[name=password]{
+			background-color: limegreen;
+		}
+		[href]{
+			text-decoration: overline;
+		}
+		/*后代选择器*/
+		p span{
+			background-color: limegreen;
+		} 
+		.form-control label{
+			background-color: red;
+		}
+		/*直接子元素选择器*/
+		.form-control>label{
+			font-family: "楷体";
+		}
+		/*兄弟选择器*/
+		label+input{
+			width: 50px;
+		}
+		
+		/*伪类选择器*/
+		/*作为其他元素的第一个子元素的.form-control元素*/
+		.form-control:first-child{
+			border: 1px solid black;
+		}
+
+		span:first-child{
+			color:red;
+			text-shadow: 5px 5px 5px blue;
+		}
+		label:first-child{
+			text-shadow:  5px 5px 5px green;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<!-- 块级元素 block level <h1> <p> <div>-->
+		<!--  行内元素 inline <img> <label> <a> <span> -->
+		<h1>Hello World</h1><span id="littleStar">1asdfasdfasdfa</span><span>2asdfasdfasdfasd</span><a href="">axxx</a><a href="">bxxx</a>
+
+		<p>依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字<span class="keyword">依稀文字</span>依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字依稀文字</p>
+
+
+		<a href="http://www.csdn.net" class="keyword">c依稀文字</a>
+
+		<form action="http://www.baidu.com/s" method="GET">
+			<!-- input标签，type属性决定了类型，-->
+			<!-- text就是文本框 -->
+			<div class="form-control">
+				<label class="lb">用户名</label><input type="text" name="username" />
+				<div>
+					<label class="lb">随便一个Label</label>
+				</div>
+			</div>
+			<!-- password 密码框 -->
+			<div class="form-control">
+				<label class="lb">密码</label><input type="password" name="password" />
+			</div>
+			<!-- radio 单选框，name必须相同，value表示提交的值，checked表示默认选中-->
+			<div class="form-control">
+				<label class="lb">性别</label>
+				<input type="radio" name="sex" value="male" checked id="sex_male"/><label for="sex_male">男</label>
+				<input type="radio" name="sex" value="female" id="sex_female"/><label for="sex_female">女</label>
+			</div>
+			<!-- checkbox 多选框，name必须相同，value表示提交的值，checked默认选中，id与label的for对应-->
+			<div class="form-control">
+				<label class="lb">爱好</label>
+				<input type="checkbox" name="hobby" value="swimming"  id="hobby_swimming"/><label for="hobby_swimming">游泳</label>
+				<input type="checkbox" name="hobby" value="reading"  id="hobby_reading"/><label for="hobby_reading">阅读</label>
+				<input type="checkbox" name="hobby" value="travelling"  id="hobby_travelling"/><label for="hobby_travelling">旅行</label>
+			</div>
+			<!-- select 下拉列表  -->
+			<div class="form-control">
+				<label class="lb">国籍</label><select name="country">
+					<option value="china">中国</option>
+					<option value="usa">美国</option>
+					<option value="japan">日本</option>
+					<option value="german">德国</option>
+				</select>
+			</div>
+			<!-- textarea 文本域 -->
+			<div class="form-control">
+				<label class="lb">备注</label><textarea name="memo" rows="3" cols="30"></textarea>
+			</div>
+			<input type="submit" value="注册"/>
+		</form>
+
+	</div>
+
+</body>
+</html>

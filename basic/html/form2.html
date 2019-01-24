@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>表单</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<h1>注册表单</h1>
+<!-- form 标签 : 表单 -->
+<!-- action属性，提交的地址 -->
+<!-- method属性，提交方法 get 或者 post，默认为get，一般写post -->
+<form action="http://www.baidu.com/s" method="GET">
+	<!-- input标签，type属性决定了类型，-->
+	<!-- text就是文本框 -->
+	<div class="form-control">
+		<label>用户名</label><input type="text" name="username" />
+	</div>
+	<!-- password 密码框 -->
+	<div class="form-control">
+		<label>密码</label><input type="password" name="password" />
+	</div>
+	<!-- radio 单选框，name必须相同，value表示提交的值，checked表示默认选中-->
+	<div class="form-control">
+		<label>性别</label>
+		<input type="radio" name="sex" value="male" checked id="sex_male"/><label for="sex_male">男</label>
+		<input type="radio" name="sex" value="female" id="sex_female"/><label for="sex_female">女</label>
+	</div>
+	<!-- checkbox 多选框，name必须相同，value表示提交的值，checked默认选中，id与label的for对应-->
+	<div class="form-control">
+		<label>爱好</label>
+		<input type="checkbox" name="hobby" value="swimming"  id="hobby_swimming"/><label for="hobby_swimming">游泳</label>
+		<input type="checkbox" name="hobby" value="reading"  id="hobby_reading"/><label for="hobby_reading">阅读</label>
+		<input type="checkbox" name="hobby" value="travelling"  id="hobby_travelling"/><label for="hobby_travelling">旅行</label>
+	</div>
+	<!-- select 下拉列表  -->
+	<div class="form-control">
+		<label>国籍</label>
+		<select name="country">
+			<option value="china">中国</option>
+			<option value="usa">美国</option>
+			<option value="japan">日本</option>
+			<option value="german">德国</option>
+		</select>
+	</div>
+	<!-- textarea 文本域 -->
+	<div class="form-control">
+		<label>备注</label>
+		<textarea name="memo" rows="3" cols="30"></textarea>
+	</div>
+	<input type="submit" value="注册"/>
+</form>
+</body>
+</html>
