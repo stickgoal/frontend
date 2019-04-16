@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
 
 	{ 
@@ -22,3 +23,22 @@
 		}
 	}
 ]
+=======
+[
+
+	{ 
+		"request":{"uri":"/weather"},
+		"response" : { 
+			"headers" :{"Access-Control-Allow-Origin":"*"},
+			"json" :{"weather":"下雨天","temp":"18"} 
+		}
+	},
+	{
+		"request":{"uri":"/search"},
+		"response":{
+			"headers" :{"Access-Control-Allow-Origin":"*"},
+			"json" :{"result":["中国","中国银行","中国联通"]} 
+		}
+	} 
+]
+>>>>>>> 865e6ff1e5a5e542fb0b2d7a69c5bb801ec30a90

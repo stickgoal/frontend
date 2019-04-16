@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,4 +31,38 @@
 <body>
 	<div class="box"></div>
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+	<title>animetest</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			background-color: brown;
+			position: absolute;
+		}
+	</style>
+	<script src="anime.min.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			anime({
+			  targets: '.box',
+			  // left: '340px',
+			  translateX: 50,
+			  translateY: 50,
+  			  translateZ: 50,
+  			  scale: 1,
+			  // backgroundColor: '#000',
+			  // borderRadius: ['0%', '50%'],
+			  easing: 'easeInOutCubic'
+			});
+		}
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+>>>>>>> 865e6ff1e5a5e542fb0b2d7a69c5bb801ec30a90
 </html>
