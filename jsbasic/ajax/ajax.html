@@ -27,19 +27,19 @@
 </select>
 
 <script type="text/javascript">
-	/*先运行moco：java -jar moco-runner-0.11.1-standalone.jar http -p 10000 -c data.json*/
+	/*先运行moco：java -jar moco-runner-0.11.1-standalone.jar http -p 10001 -c data.json*/
 		var getBtn = document.getElementById("get");
 		var monitor = document.getElementById("monitor");
 		getBtn.onclick=function(){
 			var xhr = new XMLHttpRequest();
-			xhr.onreadystatechange=function(){
+			xhr.onload=function(){
 				if((xhr.readyState==XMLHttpRequest.DONE) && (xhr.status === 200)){
 					console.log(xhr.responseText);
 					var weather =eval('('+xhr.responseText+')');
 					monitor.innerHTML=weather.weather+"<br/>"+weather.temp;
 				}
 			}
-			xhr.open("GET","http://localhost:10000/weather",true);
+			xhr.open("GET","http://localhost:10001/weather",true);
 			xhr.send();
 		
 		}
@@ -50,11 +50,12 @@
 			var inputValue = e.target.value;
 			if(inputValue){
 				var xhr = new XMLHttpRequest();
-				xhr.onreadystatechange=function(){
+				xhr.onload=function(){
 					if((xhr.readyState==XMLHttpRequest.DONE) && (xhr.status === 200)){
 						console.log(xhr.responseText);
 						var data =eval('('+xhr.responseText+')');
 						if(data.result){
+							empty(datalist);
 							for (var i = data.result.length - 1; i >= 0; i--) {
 								var option = document.createElement("option");
 								option.textContent=data.result[i];
@@ -63,9 +64,16 @@
 						}
 					}
 				}
-				xhr.open("GET","http://localhost:10000/search",true);
+				xhr.open("GET","http://localhost:10001/search",true);
 				xhr.send("searchKey="+inputValue);
 				
+			}
+		}
+
+		function empty(select){
+			var options = select.options;
+			for (var i = options.length - 1; i >= 0; i--) {
+				select.remove(options[i]);
 			}
 		}
 

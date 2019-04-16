@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>animetest</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			background-color: brown;
+			position: absolute;
+		}
+	</style>
+	<script src="anime.min.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			anime({
+			  targets: '.box',
+			  // left: '340px',
+			  translateX: 50,
+			  translateY: 50,
+  			  translateZ: 50,
+  			  scale: 1,
+			  // backgroundColor: '#000',
+			  // borderRadius: ['0%', '50%'],
+			  easing: 'easeInOutCubic'
+			});
+		}
+	</script>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

@@ -13,5 +13,12 @@
 			"headers" :{"Access-Control-Allow-Origin":"*"},
 			"json" :{"result":["中国","中国银行","中国联通"]} 
 		}
-	} 
+	},
+	{
+		"request":{"uri":"/products"},
+		"response":{
+			"headers" :{"Access-Control-Allow-Origin":"*"},
+			"json":{"result":[{"name":"鲱鱼罐头","price":220.5,"imageUrl":"http://t11.baidu.com/it/u=1820025343,4246573905&fm=173&app=25&f=JPEG?w=640&h=359&s=D5B834D514604505059FE9F20300B01B"},{"name":"黄桃罐头","price":20.3,"imageUrl":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1550317478582&di=87af7ca665f97b2a45d4e224c56e2833&imgtype=0&src=http%3A%2F%2Fpic.ruyigou.cn%2Fupload%2F601%2F603%2F225703%2F225835%2F225963%2F281019_4301033_pic900_2383.jpg"},{"name":"肘子罐头","price":120.3,"imageUrl":"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2507112702,3984604984&fm=26&gp=0.jpg"}]}
+		}
+	}
 ]
