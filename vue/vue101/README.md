@@ -1,6 +1,13 @@
 # vue101
 
 > 测试vue
+---
+TODO 
+- 学习vue组件编写
+- 熟悉vue语法
+- 学习webpack
+- 学习vue全家桶
+- 实现一个项目
 
 ## Build Setup
 
