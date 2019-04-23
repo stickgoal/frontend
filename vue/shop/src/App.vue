@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <header>
       <router-link to="/home">Home</router-link>
       <router-link to="/login">Login</router-link>
@@ -10,7 +9,7 @@
 </template>
 
 <script>
-import Login from './components/Login'
+import Login from './pages/Login'
 export default {
   name: 'App',
   components: {Login}
