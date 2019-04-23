@@ -20,6 +20,7 @@
 <script>
 import axios from 'axios'
 import qs from 'qs'
+import Message from 'element-ui/packages/Message'
 
 export default {
   name: 'Login',
@@ -40,14 +41,16 @@ export default {
       axios.post(self.actionUrl, qs.stringify({
         username: self.username,
         password: self.password
-      })).then(function (response) {
+      })).then(response => {
         // response的结构是固定的，其中data表示返回的数据
         console.log(response)
 
         if (response.data.success) {
           self.$router.push({path: '/home'})
         } else {
-          alert('校验失败！')
+          // element-ui提供的消息提示方式
+          this.$message('校验失败')
+
         }
       })
     }

@@ -2,47 +2,44 @@
   <el-container>
     <el-main>
       <el-row>
-        <el-col :span="12">
+        <el-col :span="8" :offset="8">
           <h2>来记账吧</h2>
 
-              <el-form @submit.prevent="onSubmit">
-                <el-form-item>
-                  <el-switch @change="changeDirection"
-                    v-model="form.direction"
-                    active-text="支出"
-                    inactive-text="收入"
-                             active-color="#ff4949"
-                             inactive-color="#13ce66"
-                  >
-                  </el-switch>
-                </el-form-item>
-                <el-form-item label="分类">
-                  <el-form-item>
-                    <el-radio-group v-model="form.category"  size="small">
-                      <el-radio-button border v-for=" tag in currentTags" :key="tag" :label="tag">{{tag}}</el-radio-button>
-                    </el-radio-group>
-                  </el-form-item>
-                </el-form-item>
-                <el-form-item label="金额">
-                  <el-col :span="12" :offset="4" class="block">
-                  <el-slider
-                    v-model="form.amount"
-                    show-input>
-                  </el-slider>
-                  </el-col>
-                </el-form-item>
-                <el-form-item  label="备注">
-                  <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" v-model="form.memo" clearable></el-input>
-                </el-form-item>
-                <el-form-item>
-                  <el-button type="primary" @click="onSubmit">记一笔</el-button>
-                  <el-button type="reset">重置</el-button>
-                </el-form-item>
-              </el-form>
+          <el-form @submit.prevent="onSubmit">
+            <el-form-item>
+              <el-switch @change="changeDirection"
+                         v-model="form.direction"
+                         active-text="支出"
+                         inactive-text="收入"
+                         active-color="#ff4949"
+                         inactive-color="#13ce66"
+              >
+              </el-switch>
+            </el-form-item>
+            <el-form-item label="分类">
+              <el-form-item>
+                <el-radio-group v-model="form.category" size="small">
+                  <el-radio-button border v-for=" tag in currentTags" :key="tag" :label="tag">{{tag}}</el-radio-button>
+                </el-radio-group>
+              </el-form-item>
+            </el-form-item>
+            <el-form-item label="金额">
+              <el-col :span="12" :offset="4" class="block">
+                <el-slider
+                  v-model="form.amount"
+                  show-input>
+                </el-slider>
+              </el-col>
+            </el-form-item>
+            <el-form-item label="备注">
+              <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" v-model="form.memo" clearable></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="onSubmit">记一笔</el-button>
+              <el-button type="reset">重置</el-button>
+            </el-form-item>
+          </el-form>
         </el-col>
-     <el-col :span="12">
-          <div ref="myEchart"  style="width:500px; height:500px"></div>
-     </el-col>
       </el-row>
     </el-main>
   </el-container>
@@ -52,8 +49,7 @@
 
 import axios from 'axios'
 import qs from 'qs'
-
-var echarts = require('echarts')
+import echarts from 'echarts'
 
 export default {
   name: 'Home',
@@ -72,10 +68,14 @@ export default {
   },
   methods: {
     onSubmit () {
-      axios.post('http://localhost:8088/keep', qs.stringify(this.form)).then(function (res) {
-
+      axios.post('http://localhost:8088/keep', qs.stringify(this.form)).then(res => {
+        if (res.data.success) {
+          this.updateChart()
+        } else {
+          alert(res.data.message)
+        }
       }).catch(function (err) {
-
+        console.error(err)
       })
     },
     changeDirection () {
@@ -85,53 +85,16 @@ export default {
         this.currentTags = this.gainTags
       }
       this.form.category = this.currentTags[0]
-    },
-    initChart () {
-      this.chart = echarts.init(this.$refs.myEchart)
-      // 把配置和数据放这里
-      this.chart.setOption({
-        color: ['#3398DB'],
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: { // 坐标轴指示器，坐标轴触发有效
-            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-          }
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: [{
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-          axisTick: {
-            alignWithLabel: true
-          }
-        }],
-        yAxis: [{
-          type: 'value'
-        }],
-        series: [{
-          name: '直接访问',
-          type: 'bar',
-          barWidth: '60%',
-          data: [10, 52, 200, 334, 390, 330, 220]
-        }]
-      })
     }
   },
   mounted () {
-    this.initChart()
     // 从后台获取标签
-    var self = this
-    axios.get('http://localhost:8088/getTags').then(function (response) {
+    axios.get('http://localhost:8088/getTags').then(response => {
       if (response.data.success) {
-        self.paymentTags = response.data.paymentTags
-        self.gainTags = response.data.gainTags
-        self.currentTags = self.paymentTags
-        self.form.category = self.currentTags[0]
+        this.paymentTags = response.data.paymentTags
+        this.gainTags = response.data.gainTags
+        this.currentTags = this.paymentTags
+        this.form.category = this.currentTags[0]
       }
     })
   }

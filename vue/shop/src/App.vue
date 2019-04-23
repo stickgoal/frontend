@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <header>
-      <router-link to="/home">Home</router-link>
-      <router-link to="/login">Login</router-link>
+      <router-link to="/home">记账</router-link>
+      <router-link to="/login">登录</router-link>
+      <router-link to="/stat">统计</router-link>
     </header>
     <router-view></router-view>
   </div>
