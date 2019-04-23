@@ -5,7 +5,7 @@
         <el-col :span="8" :offset="8">
           <h2>来记账吧</h2>
 
-          <el-form @submit.prevent="onSubmit">
+          <el-form :rules="rules" @submit.prevent="onSubmit" :mnpodel="form" ref="keepForm">
             <el-form-item>
               <el-switch @change="changeDirection"
                          v-model="form.direction"
@@ -18,7 +18,7 @@
             </el-form-item>
             <el-form-item label="分类">
               <el-form-item>
-                <el-radio-group v-model="form.category" size="small">
+                <el-radio-group v-model="form.category" size="small" prop="category">
                   <el-radio-button border v-for=" tag in currentTags" :key="tag" :label="tag">{{tag}}</el-radio-button>
                 </el-radio-group>
               </el-form-item>
@@ -31,11 +31,11 @@
                 </el-slider>
               </el-col>
             </el-form-item>
-            <el-form-item label="备注">
+            <el-form-item label="备注" prop="memo">
               <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" v-model="form.memo" clearable></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" @click="onSubmit">记一笔</el-button>
+              <el-button type="primary" @click="onSubmit('keepForm')">记一笔</el-button>
               <el-button type="reset">重置</el-button>
             </el-form-item>
           </el-form>
@@ -49,7 +49,6 @@
 
 import axios from 'axios'
 import qs from 'qs'
-import echarts from 'echarts'
 
 export default {
   name: 'Home',
@@ -63,19 +62,33 @@ export default {
       },
       paymentTags: [],
       gainTags: [],
-      currentTags: []
+      currentTags: [],
+      rules: {
+        category: [{required: true, message: '选择分类', trigger: 'blur'}],
+        memo: [{required: true, message: '请填写备注', trigger: 'blur'},
+          {min: 3, max: 2048, message: '字符不符合要求', trigger: 'blur'}
+        ]
+      }
     }
   },
   methods: {
-    onSubmit () {
-      axios.post('http://localhost:8088/keep', qs.stringify(this.form)).then(res => {
-        if (res.data.success) {
-          this.updateChart()
+    onSubmit (formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          axios.post('http://localhost:8088/keep', qs.stringify(this.form)).then(res => {
+            if (res.data.success) {
+              this.$notify('记账成功啦')
+            } else {
+              this.$notify(res.data.message)
+            }
+          }).catch(function (err) {
+            console.error(err)
+          })
+          return true
         } else {
-          alert(res.data.message)
+          console.log('error submit!!')
+          return false
         }
-      }).catch(function (err) {
-        console.error(err)
       })
     },
     changeDirection () {

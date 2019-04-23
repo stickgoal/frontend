@@ -50,7 +50,6 @@ export default {
         } else {
           // element-ui提供的消息提示方式
           this.$message('校验失败')
-
         }
       })
     }
