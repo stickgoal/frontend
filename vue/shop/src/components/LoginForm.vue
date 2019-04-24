@@ -1,6 +1,6 @@
 <template>
     <div>
-      <form v-bind:acion="actionUrl" @submit="doSubmit">
+      <form v-bind:acion="actionUrl" @submit.prevent="doSubmit">
         <div class="item">
           <h2>{{loginTitleInner}}</h2>
         </div>
@@ -20,6 +20,7 @@
 <script>
 import axios from 'axios'
 import qs from 'qs'
+import Message from 'element-ui/packages/Message'
 
 export default {
   name: 'Login',
@@ -34,18 +35,23 @@ export default {
   },
   methods: {
     doSubmit (e) {
-      var self = this
-      console.log(self)
+      const self = this
+
       // 注意坑点 axios post 传参需要用qs的stringify一下
-      axios.post('http://localhost:9999/login', qs.stringify({
+      axios.post(self.actionUrl, qs.stringify({
         username: self.username,
         password: self.password
-      })).then(function (response) {
+      })).then(response => {
+        // response的结构是固定的，其中data表示返回的数据
         console.log(response)
-        self.$router.push({path: '/home'})
+
+        if (response.data.success) {
+          self.$router.push({path: '/home'})
+        } else {
+          // element-ui提供的消息提示方式
+          this.$message('校验失败')
+        }
       })
-      // 禁止默认行为
-      e.preventDefault()
     }
   }
 }
